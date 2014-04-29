@@ -1,0 +1,24 @@
+# Wavefront material library
+# Tue Aug 03 07:48:14 1999
+# Created with Viewpoint Interchange www.viewpoint.com
+
+newmtl orc_body
+Ka 0.4 0.4 0.4
+Kd 0.8 0.8 0.8
+Ks 0.2 0.2 0.2
+Ns 10.0
+  illum 2
+  map_Ka Fish\ORCA.BMP
+
+newmtl orc_iris
+  Ka 0 0 0
+  Kd 0 0 0
+  Ks 0 0 0
+  illum 2
+  map_Kd Fish\eye_brn1.TIF
+
+newmtl orc_eye
+  Ka 0 0 0
+  Kd 1 0.988235 0.941176
+  Ks 1 0.988235 0.941176
+  illum 2

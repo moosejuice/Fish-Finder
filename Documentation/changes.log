@@ -1,0 +1,359 @@
+//need to update scale of all fish models so their sizes are reasonable.
+April 4/14:
+	Modify pause menu to include game state information. 
+	Reduce point value if shark captures a fish.
+	Set lower limit on screen resolution.
+	Init script shows some progress on fish initialization as it takes many seconds.
+	Nothing will cause the game to end. ie: 10 fish capture does not end game. Game play is continuous.
+
+March 29/14:
+	Add skybox.
+	There are now 7 types of fish in the world. Each with a rarity and point value.
+		- Game will keep track of points and fish captured between games
+		- Display to user through menu.
+		- Point of game is to collect all fish. 
+	Can save/load game which keeps points and fish types caught.
+	Add to pause menu a listing of fish types caught and how many.
+
+
+March 23/14:
+	Modify shark sight calculations.
+	Removed fish sight calculations and modified wraparound calculations
+	Changed shark model to a hammerhead shark. His tail sticks out of his collision sphere, but he cant eat with his tail anyways..
+	Re-instate proper world bounderies.
+
+March 22/14:
+	Add shark follow camera mode. '4' key
+	Implement explore mode
+	Implement pursue fast ai
+	Slow AI for shark implemented. 
+
+	Flocking works better without cohesion, ie they dont gather in corners and still travel as a flock. 
+		Therefore there must be an error somewhere in the cohesion formula. 
+		Cohesion is currently removed from the steering vector.
+	Force a Slow_AI update when the shark catches a fish. It smells blood and wants more. 
+
+
+March 21/14:
+	Flocking works, but they group in the corners of the world.....
+
+	Implement shark as its own class.
+		- Escort Mode is working.
+
+	Collision Detection (Working). 	Shark vs Ground: shark.cpp
+					Shark vs Sub: shark.cpp		(Had to implement different than assignment description)
+					Shark vs fish: shark.cpp
+
+	Add checks to fish and shark for random floating point errors and take corrective actions to prevent objects disappearing.	
+
+March 14/14:
+	fish.h
+		Add struct Fish_Distance to hold a fish pointer and its distance from the current fish
+		Add static bool sort_help(const Fish_Distance&, const Fish_Distance&) to allow use of algorithm sort
+			- Defined to order lowest distance to greatest
+		Add new fish constants
+		Remove flock_distance_max, flock_count_min
+		Remove vector<Fish*> fish_in_flock and replace it with nearest_fish. 
+			Update usage in fish_vs_fish collision detection to reflect this change.
+		Limit vertical rotation to +- 10 degrees
+
+
+	ai.cpp
+		Modify slow_fish_ai to calculate distance of fish to all others, updating flock_count and if close enough, adding to nearest_fish vector
+			- We then call sort on this vector
+			- Add vector<Fish_Distance> nearest_fish
+
+	Started to Implement flocking.	
+
+
+March 8/14:
+	Implemented fish vs sub collision
+	Implemeted camera modes
+	Removed global variables adding them to appropriate classes
+	Clean up code removing unused functions and commented code.
+	Add an orca to the game with greater point value than other fish.
+
+March 7/14:
+	Implemented fish vs ground collision.
+	Game initialized to a menu screen first, giving the option to render new game or load a game(to be implemented later)
+	Pause screen while game is running displays save game option(to be implemented later)
+	B/b key toggles fish vs fish collision on and off
+March 6/14:
+	Fixed sub vs ground collision.
+	Finished implementing fish vs fish collision.
+
+March 5/14:
+	Implement sub vs ground collision. Something seems off with it though, almost like its calculating to origin of sub 
+	even though the radius is considered and it only happens at certain hills.
+
+Feb 19/14:
+	drawings.cpp
+		Draw_fish. Add condition on only draw fish in in_viewport is true.
+	fish.cpp
+		Add variable to fish bool in_viewport to indicate if the fish can be seen by camera.
+	Displays.cpp
+		Add function init_display
+		Add variable enable_fog
+	game.cpp
+		Game init calls init_display();
+	keyboard_operations
+		Enable toggle of enable_fog flag
+	Moved more towards object oriented design, eliminating more global variables
+
+Feb 18/14:
+	Add fog to display. Not yet keybound or in a function..
+	Add global sub_fish_rad_squared for outer sphere collision distance. Define it in collision_detection.cpp
+
+	Change fish.obj co-ordinate space to have origin at center of fish instead of its nose.
+	In submarine.cpp modify check_world_bounds()
+		Collision detection for sub vs surface. If out of bounds, set to bound and reflect
+		Modify draw function to allow for collision sphere drawing
+
+	New files collision_detection.cpp(h)
+		New function fish_collision_detection(void)
+			fish vs surface. 	If out of bounds, set to bound and reflect.(IMPLEMENTED)
+			fish vs fish.		Detected, but appropriate actions are not defined. Info is currently printed to cmd window 
+			fish vs sub		First level detected
+	In ai.cpp modified slow_fish_ai(int)
+		Clear fish_in_flock for slow ai iterater fish
+		if fish in flock, add this fish to the fish in flock iterator. (Will use later to limit fish vs fish collision checks)
+	In fish.h
+		Add variable vector of fish iterators called fish_in_flock
+		Modify draw function to allow for collision sphere drawing
+
+	New class Game to store game variables and functions.
+	New class constants to store game constants
+	New class displays for display functions
+
+	AI functions have been changed into a class
+
+Feb 18/14:
+	Implement vertical rotation of fish objects.
+	Removed debug comment code.
+	Add keyboard input for the '1' key. This instantly sets buoyancy to 1, the neutral value.
+	Add Radian to Degrees conversion factor to global_variables.h
+
+
+Feb 15/14:
+	Remove ablility to modify physics and AI rates.
+	Increase zfar plane from 100 to 500
+
+	Changed increase/decrease velocity to occur for the entire duration of all physics updates and resets afer the updates are caught up
+	instead of once per update loop, or idle. This sets a velocity limit of just under 100m/s as opposed to the old way that was dependant
+	on frame rate.
+
+
+Feb 10/14
+	Changed heightmap 50x50 to represent the entire 1000x1000 ocean floor. As a result, eliminating tiling of the floor list. 
+	This ability still exists to enable additional world sizes.
+	This also reduced the amount of time to run the display function from 17 to 14ms
+Made all submarine variables private. Only accessable by functions. Also removed speed variable.
+
+Debug mode now displays: buoyancy, velocity, rotation on all axis in radians, rotation in degrees, average time to display and update(int).
+
+Removed global variables: drag_val, xIncrement, yIncrement
+Moved global variable subSphereRadius into class Submarine.
+
+In drawings.cpp:
+	Removed unused function draw_sub(void)
+
+Feb 9/14
+MIN FLOCK VALUE SET TO 500 to let fish freely swim around..
+In write_text.cpp:
+	Added various variable outputs to the screen
+
+	variables constantly being true fixed as read heightmap was referencing out of range array of heightmap[][]array causing initialization issues
+In global_variables.h:
+	New variable GLuint ocean_floor to hold identifier for ocean_floor display list
+
+In submarine.cpp: increase_velocity and decrease_velocity are now private variables. Created Access function for each variable.
+	New variable vertical_rotation to store the vertical rotation from buoyancy in degrees
+	update_buoyancy(int)
+		Now calculates vertical rotation to be applied in degrees.
+	draw()
+		Now applies the vertical rotation calculated in update buoyancy
+
+In fish.cpp:
+	Added function draw() to draw a fish
+		This calculates the rotation of the fish as well. We use the Vector3 function getRotationY() to get the required 
+		rotation in radians, than convert to degrees. We apply this to the Y axis of the fish and draw the model.
+
+Vertical rotation for submarine has negative rate for facing down, and positive for facing up. ie: decent is negative, ascent is positive.
+
+In prototypes.cpp: 
+	init(void): initialize a display list for the ocean floor
+	display(void): call ocean floor by display list
+In drawings.cpp:
+	draw_ocean_floor(void): uses heightmap to draw ocean floor with sand texture. Creates a 500x500 textured surface
+In physics.cpp:
+	submarine_physics(int): modified calculation of drag to properly compute the co-efficient
+
+Feb 8/14
+ISSUES: physics_lag = 0; as initialization in global_variables.cpp doesn't work. init to 1 fixed issue
+	In physics.cpp:
+		mysub variables: increase_velocity, decrease_velocity, turn_CW and turn_CCW 
+			Are continuously returning true regardless of user input. Used to work, but broke for some reason
+
+Rotation implemented as a submarine variable called rotation. It contains the degrees of rotation about the (1,0,0) vector.
+Submarine motion implemented.
+
+In global_variables.h
+	Added constant for pi and degrees to radian conversion factor
+	Removed zIncrement as it is no longer needed.
+Moved buoyancy boundery check from prototypes boundery_check() to submarine::update_buoyancy()
+
+In drawings.cpp:
+	Added function read_height_map(void) to read a height map in from text file
+	Modified draw_ocean_floor(void) to no longer draw plane, but a floor based upon height map(INCOMPLETE)
+
+
+Feb 7/14
+	Moved submarine.obj and related files into submarine directory
+
+In submarine.h:
+	Added movement variables and initialize them in init_sub()
+
+In keyboard_operations.cpp:
+	Modified keyboard input to represent submarine velocity movement.
+
+In prototypes.cpp
+	In idle():
+		Add function call to submarine_physics()
+	In init(void):
+		Initialize previous_frame
+
+	In boundery_check(void):
+		Add buoyancy range check
+
+In global_variables.cpp:
+	Reduced zIncrement to 0.005f
+	Added int previous_frame for sub physics update delta time.
+
+In physics.cpp:
+	Modified submarine_physics(void) to submarine_physics(int) as it needs the frame delta time
+	submarine_physics(int):
+		implemented buoyancy calculations
+		rotate velocity about Y axis if key is selected.
+
+In write_text.cpp:
+	Added text output to HUD to display current buoyancy rate.
+
+Feb 1/14
+	Removed some unused code and irrelevant comments. 
+
+
+Jan 31/14
+Add ObjLibrary from Lab 4 to display an actual submarine so camera rotation makes sense
+In keyboard_operations:
+	r key resets the camera to default position
+In submarine.h
+	Added variable subObj to represent the submarine .obj
+	Added class function draw to draw submarine and take it out of drawings.cpp
+
+
+Jan 29/14
+AFter function implementation, Physics update Rate 100.0, SlowAI update rate 0.01 and Fast AI Update Rate 40.0
+5000 Fish in world generated ~33fps
+In ai.cpp
+	Modified slow_fish_ai()
+		Function now takes in an int parameter indicating the number of fish to slow update.
+		Implemented the slow ai. 
+	Modified fast_fish_ai()
+		Implemented the ai to change current velocity to target velocity based upon acceleration,
+		and the given deltaTime
+
+In prototypes.h
+	Added functions:
+		fish_world_edge_check(void) to check the fish against bounds of the world.
+	Modified idle:
+		Finished implementing frame rate indepentant approach
+
+In fish.h
+	Added variables to class Fish:
+		flock_count to keep track of fish in flock distance
+
+In fish.cpp
+	Modified function
+		remove_fish:
+			Fixed issue where game would crash when removing fish
+			Cannot remove fish when there are none.
+
+In global_variables.h
+	Added variables:
+		slow_ai_iterator to indicate which fish slow AI is on.
+		physics_lag
+		ai_lag
+		AIFixedDeltaTime
+		PhysicsFixedDeltaTime
+		SlowFishUpdateNumber
+	Removed variable:
+		lag
+
+In keyboard_operations.cpp
+	Modified function keyboard()
+		Change display HUD key as to not interfere with new required feature to add/remove fish.
+
+
+Jan 25/14
+Added Vector3.h and Vector3.cpp for velocity vectors
+Added physics.h and physics.cpp for physics update functions
+Added ai.h and ai.cpp for ai update functions
+
+In fish.h
+	Added functions:
+		add_fish(void) to add additional fish to world
+		remove_fish(void) to remove a fish from the world
+	Added variables to class Fish:
+		mass
+		speed
+		acceleration
+		flock_distance_max
+		flock_count_min
+		max_speed
+		current_velocity
+		target_velocity
+
+In global_variables.h
+	Added variables:
+		display_update_rates
+		default_fast_ai_update_rate
+		default_physics_update_rate
+		default_slow_ai_update_rate
+		submarine_mass
+		lag
+		delta_time
+		game_running
+		game_over
+		
+In write_text.cpp
+	Modified draw_hud(void) to write display update rates if set too.
+	Added draw_pause_screen(void) too draw a simple 2D pause screen.
+	
+In keyboard_operations.cpp
+	Modified keyboardOperations(void)
+		Added checks for physics and AI update rates.
+	Modified keyboard(char, int, int)
+		Added toggles for:
+			display_update_rates
+			remove_fish
+			add_fish
+			
+In prototypes.cpp
+	Modified boundery_check(void)
+		AI and physics update rates cannot be less than 0.
+	****EXTRA FEATURE**** Pause Menu.
+	Modified display(void)
+		If game is running, display the world
+		else draw the pause screen
+	Modified idle()
+		If game is running, update the game world
+		else force ~30fps
+	****END EXTRA****
+		
+Changed fish location from x,y,z co-ordinated and contained them in a Vector3 called location. Relevant files and functions changed include:
+	fish.cpp: generate_fish(), add_fish()
+	prototypes.cpp: check_for_fish_capture() (inefficient work around to be improved later on)
+	
+Created submarine.h
+	Created class Submarine. variable mySub to hold submarine information.
+	Updated all instances of xPosition, yPosition and zPosition to corresponding mysub location.

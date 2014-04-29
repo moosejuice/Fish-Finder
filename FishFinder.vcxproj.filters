@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="ObjLibrary">
+      <UniqueIdentifier>{b4568561-26d8-4823-9091-90ada9eacb93}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="glut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sleep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="prototypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fish.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gradient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard_operations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global_variables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="write_text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drawings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ai.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="submarine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\DisplayList.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\GetGlut.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\GLUT.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\Material.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\MtlLibrary.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\MtlLibraryManager.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\ObjModel.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\ObjStringOperations.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\ObjStringParsing.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\SpriteFont.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\Texture.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\TextureBmp.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\TextureManager.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\Vector2.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLibrary\Vector3.h">
+      <Filter>ObjLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_detection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="displays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="temp_inc_game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="glut32.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sleep.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gradient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prototypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard_operations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="global_variables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="write_text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drawings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fish.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="physics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="submarine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\DisplayList.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\Material.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\MtlLibrary.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\MtlLibraryManager.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\ObjModel.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\ObjStringOperations.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\ObjStringParsing.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\SpriteFont.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\Texture.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\TextureBmp.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\TextureManager.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\Vector2.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLibrary\Vector3.cpp">
+      <Filter>ObjLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="collision_detection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="constants.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="displays.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="temp_inc_game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ObjLibrary\ObjLibrary-development-log.txt">
+      <Filter>ObjLibrary</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

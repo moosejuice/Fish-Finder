@@ -1,0 +1,17 @@
+# Wavefront material library
+# Tue Aug 03 07:47:56 1999
+# Created with Viewpoint Interchange www.viewpoint.com
+
+newmtl dl_body
+Ka 0.4 0.4 0.4
+Kd 0.8 0.8 0.8
+Ks 0.2 0.2 0.2
+  illum 2
+  map_Kd Fish\dolphin.bmp
+
+
+newmtl dl_eye
+  Ka 0 0 0
+  Kd 1 0.988235 0.941176
+  Ks 1 0.988235 0.941176
+  illum 2

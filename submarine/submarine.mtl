@@ -1,0 +1,10 @@
+newmtl phong1SG
+illum 0
+Kd 0.4  0.4  0.4
+Ka 0.6  0.6  0.6
+Tf 0.5  0.5  0.5
+map_Ka submarine/submarine.bmp
+map_Kd submarine/submarine.bmp
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00

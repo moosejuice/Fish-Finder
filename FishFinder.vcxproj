@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DFEEB584-6B92-422F-B360-A3696883BAB3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FishFinder</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ai.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="collision_detection.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="displays.h" />
+    <ClInclude Include="drawings.h" />
+    <ClInclude Include="fish.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="global_variables.h" />
+    <ClInclude Include="glut.h" />
+    <ClInclude Include="gradient.h" />
+    <ClInclude Include="keyboard_operations.h" />
+    <ClInclude Include="ObjLibrary\DisplayList.h" />
+    <ClInclude Include="ObjLibrary\GetGlut.h" />
+    <ClInclude Include="ObjLibrary\GLUT.h" />
+    <ClInclude Include="ObjLibrary\Material.h" />
+    <ClInclude Include="ObjLibrary\MtlLibrary.h" />
+    <ClInclude Include="ObjLibrary\MtlLibraryManager.h" />
+    <ClInclude Include="ObjLibrary\ObjModel.h" />
+    <ClInclude Include="ObjLibrary\ObjStringOperations.h" />
+    <ClInclude Include="ObjLibrary\ObjStringParsing.h" />
+    <ClInclude Include="ObjLibrary\SpriteFont.h" />
+    <ClInclude Include="ObjLibrary\Texture.h" />
+    <ClInclude Include="ObjLibrary\TextureBmp.h" />
+    <ClInclude Include="ObjLibrary\TextureManager.h" />
+    <ClInclude Include="ObjLibrary\Vector2.h" />
+    <ClInclude Include="ObjLibrary\Vector3.h" />
+    <ClInclude Include="physics.h" />
+    <ClInclude Include="prototypes.h" />
+    <ClInclude Include="shark.h" />
+    <ClInclude Include="Sleep.h" />
+    <ClInclude Include="submarine.h" />
+    <ClInclude Include="temp_inc_game.h" />
+    <ClInclude Include="write_text.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="glut32.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ai.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="collision_detection.cpp" />
+    <ClCompile Include="constants.cpp" />
+    <ClCompile Include="displays.cpp" />
+    <ClCompile Include="drawings.cpp" />
+    <ClCompile Include="fish.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="global_variables.cpp" />
+    <ClCompile Include="gradient.cpp" />
+    <ClCompile Include="keyboard_operations.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ObjLibrary\DisplayList.cpp" />
+    <ClCompile Include="ObjLibrary\Material.cpp" />
+    <ClCompile Include="ObjLibrary\MtlLibrary.cpp" />
+    <ClCompile Include="ObjLibrary\MtlLibraryManager.cpp" />
+    <ClCompile Include="ObjLibrary\ObjModel.cpp" />
+    <ClCompile Include="ObjLibrary\ObjStringOperations.cpp" />
+    <ClCompile Include="ObjLibrary\ObjStringParsing.cpp" />
+    <ClCompile Include="ObjLibrary\SpriteFont.cpp" />
+    <ClCompile Include="ObjLibrary\Texture.cpp" />
+    <ClCompile Include="ObjLibrary\TextureBmp.cpp" />
+    <ClCompile Include="ObjLibrary\TextureManager.cpp" />
+    <ClCompile Include="ObjLibrary\Vector2.cpp" />
+    <ClCompile Include="ObjLibrary\Vector3.cpp" />
+    <ClCompile Include="physics.cpp" />
+    <ClCompile Include="prototypes.cpp" />
+    <ClCompile Include="shark.cpp" />
+    <ClCompile Include="Sleep.cpp" />
+    <ClCompile Include="submarine.cpp" />
+    <ClCompile Include="temp_inc_game.cpp" />
+    <ClCompile Include="write_text.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ObjLibrary\ObjLibrary-development-log.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
